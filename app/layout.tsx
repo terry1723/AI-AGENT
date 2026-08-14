@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "../src/styles.css";
 
 export const metadata: Metadata = {
-  title: "Terry AI Lab — 讓 AI 真正開始替你的公司工作",
-  description: "Terry AI Lab 協助中小企業將重要工作流程轉化成真正可以工作的 AI Agent 與自動化系統。",
+  title: "Terry AI Lab — 企業成長與 AI 落地夥伴",
+  description: "Terry AI Lab 協助企業釐清真正問題，再與團隊共同建立可持續使用的 workflow。",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
