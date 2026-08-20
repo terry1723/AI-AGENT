@@ -4,6 +4,19 @@ const commercial = {
   unitEn: '1 workflow',
 }
 
+const appBase = (import.meta.env?.BASE_URL || '/').replace(/\/$/, '')
+
+function appUrl(path = '/') {
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
+  return `${appBase}${normalizedPath}` || '/'
+}
+
+function currentRoute() {
+  let path = window.location.pathname
+  if (appBase && path.startsWith(appBase)) path = path.slice(appBase.length) || '/'
+  return path.replace(/\/$/, '') || '/'
+}
+
 let currentLang = 'zh'
 try {
   currentLang = localStorage.getItem('terry-ai-lab-lang') === 'en' ? 'en' : 'zh'
@@ -261,7 +274,7 @@ function currentText() {
 }
 
 function link(path, label, className = '') {
-  return `<a class="${className}" href="${path}">${label}</a>`
+  return `<a class="${className}" href="${appUrl(path)}">${label}</a>`
 }
 
 function eyebrow(label, index = '') {
@@ -279,7 +292,7 @@ function shell(content) {
   return `
     <div class="site-shell">
       <header class="site-header" data-header>
-        <a class="wordmark" href="/" aria-label="Terry AI Lab home"><span class="wordmark-mark">T</span><span>Terry AI Lab</span></a>
+        <a class="wordmark" href="${appUrl('/')}" aria-label="Terry AI Lab home"><span class="wordmark-mark">T</span><span>Terry AI Lab</span></a>
         <nav class="desktop-nav" aria-label="Primary navigation">${labels.map(([path, label]) => link(path, label)).join('')}</nav>
         <div class="header-actions">
           <button class="language-switch" type="button" data-lang-toggle aria-label="${languageLabel}"><span class="${currentLang === 'zh' ? 'is-active' : ''}">中文</span><i>/</i><span class="${currentLang === 'en' ? 'is-active' : ''}">EN</span></button>
@@ -290,7 +303,7 @@ function shell(content) {
       <div class="mobile-menu" data-mobile-menu aria-hidden="true"><div class="mobile-menu-inner">${labels.map(([path, label]) => link(path, label, 'mobile-link')).join('')}${link('/consultation', `${copy.home.primary} ${icons.arrow}`, 'button button-primary mobile-cta')}</div></div>
       <main>${content}</main>
       <footer class="site-footer">
-        <div class="footer-main"><div><a class="wordmark footer-wordmark" href="/"><span class="wordmark-mark">T</span><span>Terry AI Lab</span></a><p class="footer-tagline">LEARN · APPLY · GROW</p><p class="footer-copy">${currentLang === 'zh' ? '由企業問題出發 建立團隊真正使用的 workflow' : 'Start with the business problem Build a workflow the team can use'}</p></div><div class="footer-links"><div><span class="footer-label">EXPLORE</span>${labels.slice(0, 4).map(([path, label]) => link(path, label)).join('')}</div><div><span class="footer-label">START HERE</span>${link('/consultation', copy.home.primary)}${link('/ai-agents', currentLang === 'zh' ? '解決方案' : 'Solutions')}</div></div></div>
+        <div class="footer-main"><div><a class="wordmark footer-wordmark" href="${appUrl('/')}"><span class="wordmark-mark">T</span><span>Terry AI Lab</span></a><p class="footer-tagline">LEARN · APPLY · GROW</p><p class="footer-copy">${currentLang === 'zh' ? '由企業問題出發 建立團隊真正使用的 workflow' : 'Start with the business problem Build a workflow the team can use'}</p></div><div class="footer-links"><div><span class="footer-label">EXPLORE</span>${labels.slice(0, 4).map(([path, label]) => link(path, label)).join('')}</div><div><span class="footer-label">START HERE</span>${link('/consultation', copy.home.primary)}${link('/ai-agents', currentLang === 'zh' ? '解決方案' : 'Solutions')}</div></div></div>
         <div class="footer-bottom"><span>© 2026 Terry AI Lab</span><span>${currentLang === 'zh' ? '私人預覽 · Privacy & Terms' : 'Private preview · Privacy & Terms'}</span></div>
       </footer>
     </div>`
@@ -321,22 +334,22 @@ function metricCard(label, value, tone = '') {
 
 function marketingCase() {
   const copy = currentText().home
-  return `<article class="case-study case-study-marketing"><div class="case-study-copy"><div class="case-study-kicker">01 / MARKETING ACQUISITION</div><h3>${copy.marketingCaseTitle[0]}<br /><span>${copy.marketingCaseTitle[1]}</span></h3><p>${copy.marketingCaseLead}</p><div class="case-metrics">${metricCard(copy.marketingCaseBefore, '$92.52', 'is-before')}${metricCard(copy.marketingCaseAfter, '$34.58', 'is-after')}<div class="metric-drop"><strong>−62.6%</strong><span>${copy.marketingCaseSupport}</span></div></div><small class="case-disclaimer">${copy.marketingCaseDisclaimer}</small></div><div class="case-evidence case-evidence-ads"><div class="marketing-evidence-grid"><figure><img src="/case-studies/marketing-before-cost-92.png" alt="${currentLang === 'zh' ? '之前廣告記錄：每位潛在客戶成本 92.52 美元' : 'Before ad record: $92.52 cost per potential lead'}" loading="lazy" /><figcaption>${copy.marketingCaseBefore} · $92.52</figcaption></figure><figure><img src="/case-studies/marketing-after-cost-34.png" alt="${currentLang === 'zh' ? '之後廣告記錄：每位潛在客戶成本 34.58 美元' : 'After ad record: $34.58 cost per potential lead'}" loading="lazy" /><figcaption>${copy.marketingCaseAfter} · $34.58</figcaption></figure></div><small class="evidence-caption">${currentLang === 'zh' ? 'Meta 廣告管理畫面 / 實際記錄' : 'Meta Ads Manager / actual records'}</small></div></article>`
+  return `<article class="case-study case-study-marketing"><div class="case-study-copy"><div class="case-study-kicker">01 / MARKETING ACQUISITION</div><h3>${copy.marketingCaseTitle[0]}<br /><span>${copy.marketingCaseTitle[1]}</span></h3><p>${copy.marketingCaseLead}</p><div class="case-metrics">${metricCard(copy.marketingCaseBefore, '$92.52', 'is-before')}${metricCard(copy.marketingCaseAfter, '$34.58', 'is-after')}<div class="metric-drop"><strong>−62.6%</strong><span>${copy.marketingCaseSupport}</span></div></div><small class="case-disclaimer">${copy.marketingCaseDisclaimer}</small></div><div class="case-evidence case-evidence-ads"><div class="marketing-evidence-grid"><figure><img src="${appUrl('/case-studies/marketing-before-cost-92.png')}" alt="${currentLang === 'zh' ? '之前廣告記錄：每位潛在客戶成本 92.52 美元' : 'Before ad record: $92.52 cost per potential lead'}" loading="lazy" /><figcaption>${copy.marketingCaseBefore} · $92.52</figcaption></figure><figure><img src="${appUrl('/case-studies/marketing-after-cost-34.png')}" alt="${currentLang === 'zh' ? '之後廣告記錄：每位潛在客戶成本 34.58 美元' : 'After ad record: $34.58 cost per potential lead'}" loading="lazy" /><figcaption>${copy.marketingCaseAfter} · $34.58</figcaption></figure></div><small class="evidence-caption">${currentLang === 'zh' ? 'Meta 廣告管理畫面 / 實際記錄' : 'Meta Ads Manager / actual records'}</small></div></article>`
 }
 
 function operationsCase() {
   const copy = currentText().home
   const images = [
-    ['/case-studies/lead-sheets-before-redacted-v2.png', currentLang === 'zh' ? '之前：分散試算表' : 'Before: scattered sheets'],
-    ['/case-studies/unified-lead-dashboard-redacted.png', currentLang === 'zh' ? '之後：統一管理中心' : 'After: one management centre'],
-    ['/case-studies/whatsapp-follow-up-reminder-redacted.png', currentLang === 'zh' ? '提醒：WhatsApp 跟進' : 'Reminder: WhatsApp follow-up'],
+    [appUrl('/case-studies/lead-sheets-before-redacted-v2.png'), currentLang === 'zh' ? '之前：分散試算表' : 'Before: scattered sheets'],
+    [appUrl('/case-studies/unified-lead-dashboard-redacted.png'), currentLang === 'zh' ? '之後：統一管理中心' : 'After: one management centre'],
+    [appUrl('/case-studies/whatsapp-follow-up-reminder-redacted.png'), currentLang === 'zh' ? '提醒：WhatsApp 跟進' : 'Reminder: WhatsApp follow-up'],
   ]
   return `<article class="case-study case-study-operations"><div class="case-study-copy"><div class="case-study-kicker">02 / OPERATIONS</div><h3>${copy.operationsCaseTitle[0]}<br /><span>${copy.operationsCaseTitle[1]}</span></h3><div class="before-after-copy"><div><small>${currentLang === 'zh' ? '之前' : 'Before'}</small><p>${copy.operationsBefore}</p></div><div><small>${currentLang === 'zh' ? '之後' : 'After'}</small><p>${copy.operationsAfter}</p></div></div><strong class="case-outcome">${copy.operationsOutcome}</strong></div><div class="case-evidence operations-evidence">${images.map(([src, alt]) => `<figure><img src="${src}" alt="${alt}；${currentLang === 'zh' ? '私人資料已遮蓋' : 'Private data redacted'}" loading="lazy" /><figcaption>${alt}<br /><span>${currentLang === 'zh' ? '示範畫面 / 私人資料已遮蓋' : 'Demonstration / private data redacted'}</span></figcaption></figure>`).join('')}</div></article>`
 }
 
 function marketingSampleCase() {
   const copy = currentText().home
-  return `<article class="case-study case-study-sample" id="marketing-sample"><div class="case-study-copy"><div class="case-study-kicker">03 / ${copy.marketingSampleKicker}</div><h3>${copy.marketingSampleTitle[0]}<br /><span>${copy.marketingSampleTitle[1]}</span></h3><p>${copy.marketingSampleLead}</p><span class="sample-label">${copy.marketingSampleLabel}</span><small class="case-disclaimer">${copy.sampleDisclosure}</small></div><div class="video-sample-card"><video controls playsinline preload="metadata" poster="/instagram-covers/ai-video-production.jpg"><source src="/case-studies/insurance-marketing-agent-sample.mp4" type="video/mp4" />${currentLang === 'zh' ? '你的瀏覽器不支援影片播放。' : 'Your browser does not support video playback.'}</video><div class="video-sample-meta"><span>${copy.marketingSampleLabel}</span><span>9:16 · 30s</span></div></div></article>`
+  return `<article class="case-study case-study-sample" id="marketing-sample"><div class="case-study-copy"><div class="case-study-kicker">03 / ${copy.marketingSampleKicker}</div><h3>${copy.marketingSampleTitle[0]}<br /><span>${copy.marketingSampleTitle[1]}</span></h3><p>${copy.marketingSampleLead}</p><span class="sample-label">${copy.marketingSampleLabel}</span><small class="case-disclaimer">${copy.sampleDisclosure}</small></div><div class="video-sample-card"><video controls playsinline preload="metadata" poster="${appUrl('/instagram-covers/ai-video-production.jpg')}"><source src="${appUrl('/case-studies/insurance-marketing-agent-sample.mp4')}" type="video/mp4" />${currentLang === 'zh' ? '你的瀏覽器不支援影片播放。' : 'Your browser does not support video playback.'}</video><div class="video-sample-meta"><span>${copy.marketingSampleLabel}</span><span>9:16 · 30s</span></div></div></article>`
 }
 
 function caseStudiesSection() {
@@ -357,7 +370,7 @@ function methodSection() {
 }
 
 function lessonCard(lesson) {
-  return `<article class="instagram-lesson-card"><div class="instagram-lesson-media"><img src="${lesson.image}" alt="${lesson.title}" loading="lazy" /></div><div class="instagram-lesson-meta"><span>${lesson.topic}</span><span>Instagram</span></div><h3>${lesson.title}</h3><p>${lesson.description}</p></article>`
+  return `<article class="instagram-lesson-card"><div class="instagram-lesson-media"><img src="${appUrl(lesson.image)}" alt="${lesson.title}" loading="lazy" /></div><div class="instagram-lesson-meta"><span>${lesson.topic}</span><span>Instagram</span></div><h3>${lesson.title}</h3><p>${lesson.description}</p></article>`
 }
 
 function instagramAuthoritySection() {
@@ -434,7 +447,7 @@ function notFound() {
 }
 
 function render({ preserveScroll = null } = {}) {
-  const path = window.location.pathname.replace(/\/$/, '') || '/'
+  const path = currentRoute()
   let output
   if (path === '/') output = homePage()
   else if (path === '/ai-agents') output = agentPage()
