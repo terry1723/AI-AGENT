@@ -1,10 +1,8 @@
 const commercial = {
-  price: 'USD 3,500 起',
-  duration: '3–4 星期',
-  pilot: '14 日試行',
+  price: 'USD 500',
+  unitZh: '1 個 Workflow',
+  unitEn: '1 workflow',
 }
-
-const instagramProfile = 'https://www.instagram.com/terry.ai.lab/'
 
 let currentLang = 'zh'
 try {
@@ -41,21 +39,50 @@ const text = {
     homeTitle: 'Terry AI Lab — 企業成長與 AI 落地夥伴',
     homeDescription: 'Terry AI Lab 協助企業釐清真正問題，再與團隊共同建立可持續使用的 workflow。',
     home: {
-      heroKicker: 'BUSINESS GROWTH · AI ENABLEMENT',
-      heroTitle: ['先找出真正問題', '再用 AI 落地解決'],
-      heroLead: '從企業診斷到 AI 建置 由 Terry 與團隊共同完成',
+      heroKicker: 'BUSINESS DIAGNOSIS · AI AGENT EXECUTION',
+      heroTitle: ['先找出真正問題', '再讓 AI Agent 持續處理'],
+      heroLead: '企業顧問先釐清流程，再由 Terry 與團隊建立可用的 AI Agent',
       heroPrimary: '30 分鐘為你找出答案',
-      primary: '預約免費諮詢',
-      secondary: '查看解決方案',
+      primary: '開始 30 分鐘診斷',
+      secondary: '查看方案內容',
       selectorKicker: 'START WITH YOUR PROBLEM',
-      selectorTitle: '你遇到哪個問題?',
-      selectorLead: '選擇一項現況 查看可以改善的結果',
+      selectorTitle: '你遇到哪個問題？',
+      selectorLead: '選擇一項 / 查看可以改善的結果',
       current: '現況',
       improved: '改善後',
-      outcomes: ['看清問題', '共同建置', '團隊掌握'],
+      outcomes: ['找出問題', '建立 Agent', '持續改善'],
+      productKicker: 'ONE SOLUTION · TWO PARTS',
+      productTitle: ['一個方案', '兩個部分'],
+      productLead: '先指出問題，再處理問題',
+      productParts: [
+        ['01', '企業顧問診斷', '找出真正問題', '找出最重複／最耗時／最容易遺漏的流程'],
+        ['02', 'AI Agent 建置', '持續處理問題', '自動回覆／收集資料／判斷下一步／記錄及跟進'],
+      ],
+      productTailor: '按你的行業、流程及系統度身設計',
+      productUseCase: '首個產品例子：客戶查詢與跟進 Agent',
+      casesKicker: 'REAL WORKFLOW EVIDENCE',
+      casesTitle: ['由問題出發', '看到可量度改善'],
+      casesLead: '用實際 Workflow、操作畫面及可公開數據，說明 Agent 如何加入日常營運。',
+      marketingCaseTitle: ['AI Agent 加入營運後', '獲客成本下降'],
+      marketingCaseLead: '將 AI Agent 加入營運及 Marketing Workflow，同步改善內容製作、廣告測試及查詢跟進。',
+      marketingCaseSupport: '每位潛在客戶成本下降 62.6%',
+      marketingCaseBefore: '之前',
+      marketingCaseAfter: '之後',
+      marketingCaseDisclaimer: 'Meta Lead Campaign 實際記錄。結果會因預算、受眾及市場而異。',
+      operationsCaseTitle: ['從分散試算表', '到統一客戶跟進系統'],
+      operationsCaseLead: '將分散資料、負責人與跟進提醒，放進同一個可檢視的 Workflow。',
+      operationsBefore: '每個廣告／表格各自收集資料，人手整理，容易遺漏。',
+      operationsAfter: '一個管理中心，Agent 檢查新客戶及未聯絡記錄，再提醒團隊跟進。',
+      operationsOutcome: '少一點人手整理／少一點遺漏／每位客戶都有下一步',
+      marketingSampleKicker: 'MARKETING WORKFLOW SAMPLE',
+      marketingSampleTitle: ['由內容方向', '到短劇成片'],
+      marketingSampleLead: '由 AI Agent 協調內容流程，再使用 AI 生成圖片及影片。',
+      marketingSampleLabel: '保險顧問短劇示例',
+      sampleDisclosure: '示範作品，不代表已驗證的客戶案例。',
       comparisonKicker: 'THREE WAYS TO WORK',
       comparisonTitle: '三種合作模式',
-      comparisonLead: '方向 工具 或完整落地',
+      comparisonLead: '企業教練、AI 公司，與我們的分別',
+      comparisonTypes: ['企業教練', 'AI 公司', '我們'],
       comparisonRows: ['找出根因', '共同建置', '團隊掌握', '最終結果'],
       comparisonCells: [
         ['主要重點', '視項目而定', '包含'],
@@ -63,50 +90,81 @@ const text = {
         ['視服務而定', '視服務而定', '包含'],
         ['方向', '工具', '方向 + 工具 + 成果'],
       ],
-      methodKicker: 'ONE ACCOUNTABLE METHOD',
-      methodTitle: ['從診斷到落地', '由同一位夥伴負責'],
-      methodLead: '將方向、執行與團隊能力連成一條線',
+      methodKicker: 'FROM DIAGNOSIS TO AGENT',
+      methodTitle: ['從診斷到 Agent 上線', '由同一位夥伴負責'],
+      methodLead: '由同一位夥伴，連接問題、建置與交付。',
       methodSteps: [
-        ['釐清', 'CLARIFY', '目標與根因'],
-        ['建置', 'BUILD', '可用方案'],
-        ['試行', 'PILOT', '真實流程'],
-        ['賦能', 'ENABLE', '團隊掌握'],
+        ['釐清', 'CLARIFY', '目標、流程與根因'],
+        ['設計', 'DESIGN', 'Agent 邏輯與邊界'],
+        ['建置', 'BUILD', '連接資料與工具'],
+        ['交付', 'HANDOVER', '團隊可以使用'],
       ],
-      proofKicker: 'TERRY PRACTICAL TEACHING',
-      proofTitle: '先看方法 再談合作',
-      proofLink: '查看更多教學',
-      offerKicker: 'AI WORKFLOW BUILD SPRINT',
-      offerTitle: ['一個核心 workflow', '一個可驗證版本'],
-      offerLead: '集中處理一項最值得優先改善的工作',
-      offerButton: '了解建置流程',
+      instagramKicker: 'TERRY PRACTICAL TEACHING',
+      instagramTitle: '更多實用 AI 教學',
+      instagramLead: 'Terry 持續分享 AI Agent、工作效率及內容製作方法',
+      offerKicker: 'AI AGENT WORKFLOW',
+      offerTitle: ['一個核心 Workflow', '一個可用 Agent'],
+      offerLead: '先集中處理一項最值得改善的工作，再按實際需要擴展。',
+      offerButton: '查看建置內容',
+      offerIncluded: ['一項核心 Workflow', 'AI Agent 邏輯設計', '基本資料及工具連接', '交付及使用說明'],
+      offerExcluded: '不包括第三方／API／WhatsApp／CRM／SaaS 費用、複雜整合、長期維護及額外 Workflow。',
       consultKicker: 'START WITH ONE PROBLEM',
-      consultTitle: '從一個問題開始',
-      consultLead: '30 分鐘 找出下一步',
-      consultNote: '免費初步評估 不包括完整企業審計',
+      consultTitle: '帶一個問題來',
+      consultLead: '30 分鐘為你找出答案',
+      consultNote: '免費初步診斷，不包括完整企業審計',
       faqKicker: 'QUESTIONS BEFORE STARTING',
       faqTitle: '開始之前 你可能想知道',
       finalKicker: 'ONE GOOD FIRST STEP',
-      finalTitle: '找出下一步',
+      finalTitle: '先找出一個答案',
       finalLead: '選擇一項最想改善的工作',
     },
   },
   en: {
     home: {
-      heroKicker: 'BUSINESS GROWTH · AI ENABLEMENT',
-      heroTitle: ['Find the real problem', 'Then solve it with AI'],
-      heroLead: 'From business diagnosis to AI implementation Built with your team',
+      heroKicker: 'BUSINESS DIAGNOSIS · AI AGENT EXECUTION',
+      heroTitle: ['Find the real problem', 'Then let an AI Agent handle it'],
+      heroLead: 'A business consultant clarifies the workflow, then Terry and the team build a usable AI Agent',
       heroPrimary: 'Find Your Answer in 30 Minutes',
-      primary: 'Book a Free Consultation',
-      secondary: 'Explore Solutions',
+      primary: 'Start a 30-minute diagnosis',
+      secondary: 'See the solution',
       selectorKicker: 'START WITH YOUR PROBLEM',
-      selectorTitle: 'What is holding you back?',
-      selectorLead: 'Choose a current issue to see the outcome',
+      selectorTitle: 'Which problem are you facing?',
+      selectorLead: 'Choose one / see the outcome',
       current: 'Current state',
       improved: 'Improved state',
-      outcomes: ['Clarity', 'Co-build', 'Capability'],
+      outcomes: ['Diagnose', 'Build an Agent', 'Improve'],
+      productKicker: 'ONE SOLUTION · TWO PARTS',
+      productTitle: ['One solution', 'Two parts'],
+      productLead: 'Diagnose the problem, then handle it',
+      productParts: [
+        ['01', 'Business diagnosis', 'Find the real problem', 'Find the most repetitive, time-consuming and leaky workflow'],
+        ['02', 'AI Agent build', 'Handle the problem continuously', 'Reply, collect, decide, record and follow up'],
+      ],
+      productTailor: 'Tailored to your industry, workflow and systems',
+      productUseCase: 'First product example: customer enquiry and follow-up Agent',
+      casesKicker: 'REAL WORKFLOW EVIDENCE',
+      casesTitle: ['Start with the problem', 'See measurable improvement'],
+      casesLead: 'Real workflows, operating screens and shareable evidence show how an Agent fits daily operations.',
+      marketingCaseTitle: ['After adding an AI Agent', 'Acquisition cost fell'],
+      marketingCaseLead: 'The AI Agent joined the operating and marketing workflow, improving content, ad testing and enquiry follow-up together.',
+      marketingCaseSupport: 'Cost per potential lead down 62.6%',
+      marketingCaseBefore: 'Before',
+      marketingCaseAfter: 'After',
+      marketingCaseDisclaimer: 'Actual Meta Lead Campaign records. Results vary by budget, audience and market.',
+      operationsCaseTitle: ['From scattered sheets', 'to one follow-up system'],
+      operationsCaseLead: 'Put scattered data, owners and follow-up reminders into one visible workflow.',
+      operationsBefore: 'Every ad or form had its own sheet. Manual handling made follow-up easy to miss.',
+      operationsAfter: 'One management centre. The Agent checks new and untouched leads, then reminds the team on WhatsApp.',
+      operationsOutcome: 'Less manual handling / fewer misses / a next step for every customer',
+      marketingSampleKicker: 'MARKETING WORKFLOW SAMPLE',
+      marketingSampleTitle: ['From content direction', 'to a short drama'],
+      marketingSampleLead: 'An AI Agent coordinates the content workflow, then AI creates the images and video.',
+      marketingSampleLabel: 'Insurance advisor short-drama sample',
+      sampleDisclosure: 'Demonstration work, not a verified client case.',
       comparisonKicker: 'THREE WAYS TO WORK',
       comparisonTitle: 'Three ways to work',
-      comparisonLead: 'Advice Tools or End-to-End Execution',
+      comparisonLead: 'Business coach, AI company and our model',
+      comparisonTypes: ['Business Coach', 'AI Company', 'Our model'],
       comparisonRows: ['Root-cause diagnosis', 'Co-building', 'Team capability', 'Typical result'],
       comparisonCells: [
         ['Main focus', 'Depends on scope', 'Included'],
@@ -114,30 +172,32 @@ const text = {
         ['Depends on service', 'Depends on service', 'Included'],
         ['Direction', 'Tools', 'Direction + Tools + Outcomes'],
       ],
-      methodKicker: 'ONE ACCOUNTABLE METHOD',
-      methodTitle: ['One partner from diagnosis', 'to implementation'],
-      methodLead: 'Connect direction execution and team capability',
+      methodKicker: 'FROM DIAGNOSIS TO AGENT',
+      methodTitle: ['From diagnosis to Agent', 'with one accountable partner'],
+      methodLead: 'One partner connects the problem, build and handover.',
       methodSteps: [
-        ['Clarify', 'CLARIFY', 'Goal and root cause'],
-        ['Build', 'BUILD', 'Usable solution'],
-        ['Pilot', 'PILOT', 'Real workflow'],
-        ['Enable', 'ENABLE', 'Team ownership'],
+        ['Clarify', 'CLARIFY', 'Goal, workflow and root cause'],
+        ['Design', 'DESIGN', 'Agent logic and guardrails'],
+        ['Build', 'BUILD', 'Connect data and tools'],
+        ['Handover', 'HANDOVER', 'The team can use it'],
       ],
-      proofKicker: 'TERRY PRACTICAL TEACHING',
-      proofTitle: 'See the method before you commit',
-      proofLink: 'See more lessons',
-      offerKicker: 'AI WORKFLOW BUILD SPRINT',
-      offerTitle: ['One core workflow', 'One testable version'],
-      offerLead: 'Focus on one high-value business workflow first',
-      offerButton: 'Explore the Build Sprint',
+      instagramKicker: 'TERRY PRACTICAL TEACHING',
+      instagramTitle: 'More practical AI lessons',
+      instagramLead: 'Terry shares AI Agents, work efficiency and content production methods',
+      offerKicker: 'AI AGENT WORKFLOW',
+      offerTitle: ['One core workflow', 'One usable Agent'],
+      offerLead: 'Focus on one high-value workflow, then expand when the operation is ready.',
+      offerButton: 'See what is included',
+      offerIncluded: ['One core workflow', 'AI Agent logic design', 'Basic data and tool connections', 'Handover and usage guide'],
+      offerExcluded: 'Excludes third-party, API, WhatsApp, CRM and SaaS fees, complex integrations, long-term maintenance and extra workflows.',
       consultKicker: 'START WITH ONE PROBLEM',
-      consultTitle: 'Start with one problem',
-      consultLead: '30 minutes to find the next step',
-      consultNote: 'Initial fit assessment Full business audit not included',
+      consultTitle: 'Bring one problem',
+      consultLead: '30 minutes to find your answer',
+      consultNote: 'Initial diagnosis. Full business audit not included.',
       faqKicker: 'QUESTIONS BEFORE STARTING',
       faqTitle: 'Questions before starting',
       finalKicker: 'ONE GOOD FIRST STEP',
-      finalTitle: 'Find your next step',
+      finalTitle: 'Find one answer first',
       finalLead: 'Bring one workflow you want to improve',
     },
   },
@@ -146,47 +206,53 @@ const text = {
 const problems = {
   zh: [
     { id: 'lead', number: '01', title: '客戶無人跟進', current: '新客戶容易漏跟', improved: '每位新客都有負責人與下一步', steps: ['收到查詢', '分配負責人', '設定跟進', '檢視狀態'] },
-    { id: 'records', number: '02', title: '記錄太慢', current: '資料分散且依賴人手', improved: '記錄更快更完整', steps: ['收集資料', '整理內容', '儲存紀錄', '產生摘要'] },
-    { id: 'replies', number: '03', title: '查詢重複', current: '團隊反覆回答相同問題', improved: '常見問題自動處理', steps: ['理解問題', '搜尋知識', '草擬回覆', '真人覆核'] },
-    { id: 'handoff', number: '04', title: '工作靠記憶', current: '交接後容易遺漏下一步', improved: '每一步都有提醒', steps: ['建立請求', '分派工作', '更新狀態', '追蹤缺口'] },
-    { id: 'visibility', number: '05', title: '營運看不清', current: '資料分散 難以及時判斷', improved: '更早掌握業務狀況', steps: ['整合資料', '檢視訊號', '找出異常', '人手覆核'] },
+    { id: 'records', number: '02', title: '記錄太慢', current: '資料分散並依賴人手', improved: '資料自動整理及保存', steps: ['收集資料', '整理內容', '儲存記錄', '產生摘要'] },
+    { id: 'replies', number: '03', title: '查詢重複', current: '團隊反覆回答相同問題', improved: '常見問題由 Agent 協助處理', steps: ['理解問題', '搜尋知識', '草擬回覆', '真人覆核'] },
+    { id: 'handoff', number: '04', title: '工作靠記憶', current: '交接後容易遺漏下一步', improved: '每一步都有記錄及提醒', steps: ['建立請求', '分派工作', '更新狀態', '提醒跟進'] },
+    { id: 'visibility', number: '05', title: '營運看不清', current: '資料分散並難以及時判斷', improved: '更早掌握業務狀況', steps: ['整合資料', '檢視訊號', '找出異常', '產生摘要'] },
+    { id: 'marketing', number: '06', title: 'Marketing 製作太慢', current: '內容每次由零開始', improved: '圖片與影片持續產出', steps: ['整理方向', '生成圖片', '製作影片', '人手審批'] },
   ],
   en: [
     { id: 'lead', number: '01', title: 'Leads go cold', current: 'New enquiries are missed', improved: 'Every new lead has an owner and next step', steps: ['Capture enquiry', 'Assign owner', 'Set follow-up', 'Review status'] },
-    { id: 'records', number: '02', title: 'Records take too long', current: 'Information is scattered and manual', improved: 'Faster and more complete records', steps: ['Collect data', 'Structure notes', 'Store record', 'Create summary'] },
-    { id: 'replies', number: '03', title: 'Questions repeat', current: 'The team answers the same questions', improved: 'Common questions handled faster', steps: ['Understand intent', 'Search knowledge', 'Draft reply', 'Human review'] },
-    { id: 'handoff', number: '04', title: 'Work relies on memory', current: 'Next steps disappear after handoff', improved: 'Every step has a clear reminder', steps: ['Create request', 'Assign work', 'Update status', 'Track gaps'] },
-    { id: 'visibility', number: '05', title: 'The business is hard to see', current: 'Data is scattered and slow to interpret', improved: 'Earlier visibility into the business', steps: ['Combine data', 'Review signals', 'Find anomaly', 'Human review'] },
+    { id: 'records', number: '02', title: 'Records take too long', current: 'Information is scattered and manual', improved: 'Data is structured and saved automatically', steps: ['Collect data', 'Structure notes', 'Store record', 'Create summary'] },
+    { id: 'replies', number: '03', title: 'Questions repeat', current: 'The team answers the same questions', improved: 'An Agent helps handle common questions', steps: ['Understand intent', 'Search knowledge', 'Draft reply', 'Human review'] },
+    { id: 'handoff', number: '04', title: 'Work relies on memory', current: 'Next steps disappear after handoff', improved: 'Every step is recorded and reminded', steps: ['Create request', 'Assign work', 'Update status', 'Remind follow-up'] },
+    { id: 'visibility', number: '05', title: 'The business is hard to see', current: 'Data is scattered and slow to interpret', improved: 'Earlier visibility into the business', steps: ['Combine data', 'Review signals', 'Find anomaly', 'Create summary'] },
+    { id: 'marketing', number: '06', title: 'Marketing production is slow', current: 'Every piece starts from zero', improved: 'Images and video keep moving', steps: ['Set direction', 'Generate image', 'Make video', 'Human approval'] },
   ],
 }
 
 const lessons = {
   zh: [
-    { image: '/instagram-lessons/terry-workflow-01.webp', title: '為何內容流程愈做愈慢', topic: 'CONTENT WORKFLOW', description: '將重複工作變成可重用流程' },
-    { image: '/instagram-lessons/terry-workflow-02.webp', title: 'AI 不只是想得更多 而是做得更快', topic: 'PRACTICAL AI', description: '將想法變成可執行的下一步' },
-    { image: '/instagram-lessons/terry-workflow-03.webp', title: '第一步不是增加工具 而是釐清問題', topic: 'BUSINESS CLARITY', description: '先定義成果 再決定如何改善' },
+    { image: '/instagram-covers/ai-agent-vpn-guide.png', title: '由 0 到 1 教你整免 VPN AI Agent', topic: 'AI AGENT', description: '逐步建立可用 Agent' },
+    { image: '/instagram-covers/ai-agent-vpn-hk.png', title: '香港唔使 VPN 都可以整 AI Agent', topic: 'AI AGENT', description: '由零開始自己搭建' },
+    { image: '/instagram-covers/agents-md.png', title: '先整理好 AGENTS.md', topic: 'WORKFLOW', description: '先令 AI 明白工作方式' },
+    { image: '/instagram-covers/chatgpt-chrome-hidden.png', title: 'ChatGPT 隱藏功能', topic: 'PRACTICAL AI', description: '將 AI 用到日常操作' },
+    { image: '/instagram-covers/ai-video-production.jpg', title: 'AI 影像效果製作指南', topic: 'CONTENT', description: '更快完成圖片及影片' },
   ],
   en: [
-    { image: '/instagram-lessons/terry-workflow-01.webp', title: 'Why your content workflow gets slower', topic: 'CONTENT WORKFLOW', description: 'Turn repeat work into a reusable process' },
-    { image: '/instagram-lessons/terry-workflow-02.webp', title: 'AI is not about thinking more', topic: 'PRACTICAL AI', description: 'Turn an idea into the next useful action' },
-    { image: '/instagram-lessons/terry-workflow-03.webp', title: 'The first step is not another tool', topic: 'BUSINESS CLARITY', description: 'Define the outcome before changing the work' },
+    { image: '/instagram-covers/ai-agent-vpn-guide.png', title: 'Build an AI Agent from zero', topic: 'AI AGENT', description: 'A step-by-step build' },
+    { image: '/instagram-covers/ai-agent-vpn-hk.png', title: 'Build an AI Agent without a VPN', topic: 'AI AGENT', description: 'Start from the basics' },
+    { image: '/instagram-covers/agents-md.png', title: 'Set up AGENTS.md first', topic: 'WORKFLOW', description: 'Give AI a clear way to work' },
+    { image: '/instagram-covers/chatgpt-chrome-hidden.png', title: 'A hidden ChatGPT feature', topic: 'PRACTICAL AI', description: 'Use AI in everyday operations' },
+    { image: '/instagram-covers/ai-video-production.jpg', title: 'AI video production guide', topic: 'CONTENT', description: 'Make images and video faster' },
   ],
 }
 
 const faqs = {
   zh: [
-    ['你們只做 AI 嗎', '不是。我們先從 business goal 與 workflow 開始，再判斷哪一段值得改善。'],
-    ['你們與一般企業教練有何不同', '企業教練通常提供方向，AI 公司通常建置工具；Terry AI Lab 會先找出問題，再共同建置，最後讓團隊掌握。'],
-    ['我還未知道問題在哪裡 可以諮詢嗎', '可以。30 分鐘先釐清目標、瓶頸與下一步。'],
-    ['需要一開始購買很多工具嗎', '不需要。先用最少的工具驗證一項核心 workflow。'],
-    ['一個 project 通常需要多久', `視乎 scope。常見 AI Workflow Build Sprint 約 ${commercial.duration}，包括一項核心 workflow 與 ${commercial.pilot}。`],
+    ['你們只做 AI 嗎？', '不是。我們先從企業目標及 Workflow 開始，再判斷哪一段值得改善。'],
+    ['你們與一般企業教練有何不同？', '企業教練提供方向，AI 公司建置工具；我們先找出問題，再共同建置，最後讓團隊掌握。'],
+    ['我還未知道問題在哪裡，可以諮詢嗎？', '可以。30 分鐘先釐清目標、瓶頸與下一步。'],
+    ['需要一開始購買很多工具嗎？', '不需要。先用最少工具驗證一項核心 Workflow。'],
+    ['USD 500 包括甚麼？', '包括一項核心 Workflow、Agent 邏輯設計、基本連接，以及交付及使用說明。'],
   ],
   en: [
-    ['Do you only do AI', 'No. We start with the business goal and workflow, then decide where improvement is worthwhile.'],
-    ['How are you different from a business coach', 'A business coach usually provides direction and an AI company usually builds tools. Terry AI Lab diagnoses, co-builds and enables the team.'],
-    ['Can I talk to you if I do not know the problem yet', 'Yes. We use 30 minutes to clarify the goal, bottleneck and next step.'],
-    ['Do I need to buy many tools first', 'No. We start with the smallest useful set of tools to test one core workflow.'],
-    ['How long does a project take', `It depends on scope. A typical AI Workflow Build Sprint takes ${commercial.duration} and includes one core workflow and a ${commercial.pilot}.`],
+    ['Do you only do AI?', 'No. We start with the business goal and workflow, then decide where improvement is worthwhile.'],
+    ['How are you different from a business coach?', 'A business coach provides direction and an AI company builds tools. We diagnose, co-build and enable the team.'],
+    ['Can I talk to you if I do not know the problem yet?', 'Yes. We use 30 minutes to clarify the goal, bottleneck and next step.'],
+    ['Do I need to buy many tools first?', 'No. We start with the smallest useful set of tools to test one core workflow.'],
+    ['What does USD 500 include?', 'One core workflow, Agent logic design, basic connections, and a handover and usage guide.'],
   ],
 }
 
@@ -232,34 +298,76 @@ function shell(content) {
 
 function workflowVisual(problem) {
   const copy = currentText().home
-  return `<div class="problem-result" data-problem-result aria-live="polite"><div class="problem-result-top"><span>${copy.current}</span><span>${problem.number} · ${problem.title}</span></div><div class="problem-state"><small>${copy.current}</small><strong>${problem.current}</strong></div><div class="problem-divider" aria-hidden="true">↓</div><div class="problem-state is-improved"><small>${copy.improved}</small><strong>${problem.improved}</strong></div><div class="problem-flow"><span>${problem.steps.join('</span><i aria-hidden="true">→</i><span>')}</span></div></div>`
+  const sampleLink = problem.id === 'marketing'
+    ? `<a class="problem-sample-link" href="#marketing-sample">${currentLang === 'zh' ? '查看 Marketing Sample' : 'View the marketing sample'} ${icons.arrow}</a>`
+    : ''
+  return `<div class="problem-result" data-problem-result aria-live="polite"><div class="problem-result-top"><span>${copy.current}</span><span>${problem.number} · ${problem.title}</span></div><div class="problem-state"><small>${copy.current}</small><strong>${problem.current}</strong></div><div class="problem-divider" aria-hidden="true">↓</div><div class="problem-state is-improved"><small>${copy.improved}</small><strong>${problem.improved}</strong></div><div class="problem-flow"><span>${problem.steps.join('</span><i aria-hidden="true">→</i><span>')}</span></div>${sampleLink}</div>`
 }
 
 function hero() {
   const copy = currentText().home
   const first = problems[currentLang][0]
-  return `<section class="hero section-dark hero-v3 hero-selector-only"><div class="hero-grid container"><div class="hero-center-copy">${eyebrow(copy.heroKicker, '01')}<h1><span>${copy.heroTitle[0]}</span><span><em>${copy.heroTitle[1]}</em></span></h1><p class="hero-lead">${copy.heroLead}</p></div><div class="hero-visual-wrap"><div class="hero-selector-stack"><div class="problem-selector" id="solutions"><div class="problem-selector-heading"><h2>${copy.selectorTitle}</h2><p>${copy.selectorLead}</p></div><div class="problem-selector-grid"><div class="problem-tabs" role="tablist" aria-label="${copy.selectorTitle}">${problems[currentLang].map((problem, index) => `<button class="problem-tab ${index === 0 ? 'is-selected' : ''}" type="button" role="tab" aria-selected="${index === 0}" data-problem="${problem.id}"><span>${problem.number}</span><strong>${problem.title}</strong><span aria-hidden="true">↗</span></button>`).join('')}</div>${workflowVisual(first)}</div></div>${heroCta()}</div></div></div><div class="hero-bottom container"><span>${copy.outcomes.join(' · ')}</span><span class="scroll-line"></span><span>HONG KONG · MALAYSIA</span></div></section>`
+  return `<section class="hero section-dark hero-v3 hero-selector-only" id="top"><div class="hero-grid container"><div class="hero-center-copy">${eyebrow(copy.heroKicker, '01')}<h1><span>${copy.heroTitle[0]}</span><span><em>${copy.heroTitle[1]}</em></span></h1><p class="hero-lead">${copy.heroLead}</p></div><div class="hero-visual-wrap"><div class="hero-selector-stack"><div class="problem-selector" id="solutions"><div class="problem-selector-heading"><div>${eyebrow(copy.selectorKicker)}</div><h2>${copy.selectorTitle}</h2><p>${copy.selectorLead}</p></div><div class="problem-selector-grid"><div class="problem-tabs" role="tablist" aria-label="${copy.selectorTitle}">${problems[currentLang].map((problem, index) => `<button class="problem-tab ${index === 0 ? 'is-selected' : ''}" type="button" role="tab" aria-selected="${index === 0}" data-problem="${problem.id}"><span>${problem.number}</span><strong>${problem.title}</strong><span aria-hidden="true">↗</span></button>`).join('')}</div>${workflowVisual(first)}</div></div>${heroCta()}</div></div></div><div class="hero-bottom container"><span>${copy.outcomes.join(' · ')}</span><span class="scroll-line"></span><span>HONG KONG · MALAYSIA</span></div></section>`
+}
+
+function productSection() {
+  const copy = currentText().home
+  return `<section class="product-section section-light" id="product"><div class="container"><div class="product-heading">${eyebrow(copy.productKicker, '02')}<h2>${copy.productTitle[0]}<br /><span>${copy.productTitle[1]}</span></h2><p>${copy.productLead}</p></div><div class="product-panels">${copy.productParts.map(([number, title, headline, detail], index) => `<article class="product-panel ${index === 1 ? 'is-agent' : 'is-consultant'}"><div class="product-panel-top"><span>${number}</span><small>${index === 0 ? 'CONSULTANT' : 'AGENT'}</small></div><h3>${title}</h3><strong>${headline}</strong><p>${detail}</p><div class="product-panel-footer"><span>${index === 0 ? 'Human judgement' : 'Human-approved execution'}</span><i aria-hidden="true">→</i></div></article>`).join('')}</div><p class="product-use-case">${copy.productUseCase}</p><p class="product-tailor">${copy.productTailor}</p></div></section>`
+}
+
+function metricCard(label, value, tone = '') {
+  return `<div class="metric-card ${tone}"><span>${label}</span><strong>${value}</strong></div>`
+}
+
+function marketingCase() {
+  const copy = currentText().home
+  return `<article class="case-study case-study-marketing"><div class="case-study-copy"><div class="case-study-kicker">01 / MARKETING ACQUISITION</div><h3>${copy.marketingCaseTitle[0]}<br /><span>${copy.marketingCaseTitle[1]}</span></h3><p>${copy.marketingCaseLead}</p><div class="case-metrics">${metricCard(copy.marketingCaseBefore, '$92.52', 'is-before')}${metricCard(copy.marketingCaseAfter, '$34.58', 'is-after')}<div class="metric-drop"><strong>−62.6%</strong><span>${copy.marketingCaseSupport}</span></div></div><small class="case-disclaimer">${copy.marketingCaseDisclaimer}</small></div><div class="case-evidence case-evidence-ads"><div class="marketing-evidence-grid"><figure><img src="/case-studies/marketing-before-cost-92.png" alt="${currentLang === 'zh' ? '之前廣告記錄：每位潛在客戶成本 92.52 美元' : 'Before ad record: $92.52 cost per potential lead'}" loading="lazy" /><figcaption>${copy.marketingCaseBefore} · $92.52</figcaption></figure><figure><img src="/case-studies/marketing-after-cost-34.png" alt="${currentLang === 'zh' ? '之後廣告記錄：每位潛在客戶成本 34.58 美元' : 'After ad record: $34.58 cost per potential lead'}" loading="lazy" /><figcaption>${copy.marketingCaseAfter} · $34.58</figcaption></figure></div><small class="evidence-caption">${currentLang === 'zh' ? 'Meta 廣告管理畫面 / 實際記錄' : 'Meta Ads Manager / actual records'}</small></div></article>`
+}
+
+function operationsCase() {
+  const copy = currentText().home
+  const images = [
+    ['/case-studies/lead-sheets-before-redacted-v2.png', currentLang === 'zh' ? '之前：分散試算表' : 'Before: scattered sheets'],
+    ['/case-studies/unified-lead-dashboard-redacted.png', currentLang === 'zh' ? '之後：統一管理中心' : 'After: one management centre'],
+    ['/case-studies/whatsapp-follow-up-reminder-redacted.png', currentLang === 'zh' ? '提醒：WhatsApp 跟進' : 'Reminder: WhatsApp follow-up'],
+  ]
+  return `<article class="case-study case-study-operations"><div class="case-study-copy"><div class="case-study-kicker">02 / OPERATIONS</div><h3>${copy.operationsCaseTitle[0]}<br /><span>${copy.operationsCaseTitle[1]}</span></h3><div class="before-after-copy"><div><small>${currentLang === 'zh' ? '之前' : 'Before'}</small><p>${copy.operationsBefore}</p></div><div><small>${currentLang === 'zh' ? '之後' : 'After'}</small><p>${copy.operationsAfter}</p></div></div><strong class="case-outcome">${copy.operationsOutcome}</strong></div><div class="case-evidence operations-evidence">${images.map(([src, alt]) => `<figure><img src="${src}" alt="${alt}；${currentLang === 'zh' ? '私人資料已遮蓋' : 'Private data redacted'}" loading="lazy" /><figcaption>${alt}<br /><span>${currentLang === 'zh' ? '示範畫面 / 私人資料已遮蓋' : 'Demonstration / private data redacted'}</span></figcaption></figure>`).join('')}</div></article>`
+}
+
+function marketingSampleCase() {
+  const copy = currentText().home
+  return `<article class="case-study case-study-sample" id="marketing-sample"><div class="case-study-copy"><div class="case-study-kicker">03 / ${copy.marketingSampleKicker}</div><h3>${copy.marketingSampleTitle[0]}<br /><span>${copy.marketingSampleTitle[1]}</span></h3><p>${copy.marketingSampleLead}</p><span class="sample-label">${copy.marketingSampleLabel}</span><small class="case-disclaimer">${copy.sampleDisclosure}</small></div><div class="video-sample-card"><video controls playsinline preload="metadata" poster="/instagram-covers/ai-video-production.jpg"><source src="/case-studies/insurance-marketing-agent-sample.mp4" type="video/mp4" />${currentLang === 'zh' ? '你的瀏覽器不支援影片播放。' : 'Your browser does not support video playback.'}</video><div class="video-sample-meta"><span>${copy.marketingSampleLabel}</span><span>9:16 · 30s</span></div></div></article>`
+}
+
+function caseStudiesSection() {
+  const copy = currentText().home
+  return `<section class="cases-section section-dark" id="cases"><div class="container"><div class="cases-heading">${eyebrow(copy.casesKicker, '03')}<h2>${copy.casesTitle[0]}<br /><span>${copy.casesTitle[1]}</span></h2><p>${copy.casesLead}</p></div><div class="case-study-list">${marketingCase()}${operationsCase()}${marketingSampleCase()}</div></div></section>`
 }
 
 function comparisonSection() {
   const copy = currentText().home
-  const types = currentLang === 'zh' ? ['企業教練', 'AI 公司', '我們'] : ['Business Coach', 'AI Company', 'Our model']
-  return `<section class="comparison-section section-dark" id="difference"><div class="container"><div class="comparison-heading">${eyebrow(copy.comparisonKicker, '02')}<h2>${copy.comparisonTitle}</h2><p>${copy.comparisonLead}</p></div><div class="comparison-table" role="table" aria-label="${copy.comparisonTitle}"><div class="comparison-row comparison-header" role="row"><span></span>${types.map((type, index) => `<strong class="comparison-column comparison-column-${index} ${index === 2 ? 'is-featured' : ''}">${type}${index === 2 ? `<small>${currentLang === 'zh' ? '最完整方案' : 'Most complete'}</small>` : ''}</strong>`).join('')}</div>${copy.comparisonRows.map((row, rowIndex) => `<div class="comparison-row" role="row"><span class="comparison-dimension">${row}</span>${copy.comparisonCells[rowIndex].map((cell, index) => `<span class="comparison-cell comparison-column comparison-column-${index} ${index === 2 ? 'is-featured' : ''}">${cell}</span>`).join('')}</div>`).join('')}</div><div class="comparison-summary"><span>${currentLang === 'zh' ? '找出問題' : 'Diagnose'}</span><i>→</i><span>${currentLang === 'zh' ? '共同建置' : 'Build together'}</span><i>→</i><span>${currentLang === 'zh' ? '團隊掌握' : 'Enable the team'}</span></div></div></section>`
+  const types = copy.comparisonTypes
+  const mobileCards = [2, 0, 1].map((typeIndex) => `<article class="comparison-mobile-card ${typeIndex === 2 ? 'is-featured' : ''}"><div class="comparison-mobile-title"><strong>${types[typeIndex]}</strong>${typeIndex === 2 ? `<small>${currentLang === 'zh' ? '最完整方案' : 'Most complete'}</small>` : ''}</div><dl>${copy.comparisonRows.map((row, rowIndex) => `<div><dt>${row}</dt><dd>${copy.comparisonCells[rowIndex][typeIndex]}</dd></div>`).join('')}</dl></article>`).join('')
+  return `<section class="comparison-section section-dark" id="difference"><div class="container"><div class="comparison-heading">${eyebrow(copy.comparisonKicker, '04')}<h2>${copy.comparisonTitle}</h2><p>${copy.comparisonLead}</p></div><div class="comparison-table" role="table" aria-label="${copy.comparisonTitle}"><div class="comparison-row comparison-header" role="row"><span></span>${types.map((type, index) => `<strong class="comparison-column comparison-column-${index} ${index === 2 ? 'is-featured' : ''}">${type}${index === 2 ? `<small>${currentLang === 'zh' ? '最完整方案' : 'Most complete'}</small>` : ''}</strong>`).join('')}</div>${copy.comparisonRows.map((row, rowIndex) => `<div class="comparison-row" role="row"><span class="comparison-dimension">${row}</span>${copy.comparisonCells[rowIndex].map((cell, index) => `<span class="comparison-cell comparison-column comparison-column-${index} ${index === 2 ? 'is-featured' : ''}">${cell}</span>`).join('')}</div>`).join('')}</div><div class="comparison-mobile-cards">${mobileCards}</div><div class="comparison-summary"><span>${currentLang === 'zh' ? '找出問題' : 'Diagnose'}</span><i>→</i><span>${currentLang === 'zh' ? '共同建置' : 'Build together'}</span><i>→</i><span>${currentLang === 'zh' ? '團隊掌握' : 'Enable the team'}</span></div></div></section>`
 }
 
 function methodSection() {
   const copy = currentText().home
-  return `<section class="method-section section-light" id="process"><div class="container"><div class="method-heading">${eyebrow(copy.methodKicker, '03')}<h2>${copy.methodTitle[0]}<br /><span>${copy.methodTitle[1]}</span></h2><p>${copy.methodLead}</p></div><div class="method-steps">${copy.methodSteps.map(([title, english, detail], index) => `<article class="method-step"><span class="method-number">0${index + 1}</span><small>${english}</small><h3>${title}</h3><p>${detail}</p></article>`).join('')}</div><div class="method-proof"><div class="method-proof-copy">${eyebrow(copy.proofKicker)}<h3>${copy.proofTitle}</h3><p>${currentLang === 'zh' ? '透過 Instagram 教學 先了解 Terry 如何將複雜問題拆成可執行的下一步' : 'Use Terry’s Instagram lessons to see how complex problems become useful next steps'}</p>${link('/insights', `${copy.proofLink} ${icons.arrow}`, 'text-link')}</div><div class="instagram-home-grid">${lessons[currentLang].map(lessonCard).join('')}</div></div></div></section>`
+  return `<section class="method-section section-light" id="process"><div class="container"><div class="method-heading">${eyebrow(copy.methodKicker, '05')}<h2>${copy.methodTitle[0]}<br /><span>${copy.methodTitle[1]}</span></h2><p>${copy.methodLead}</p></div><div class="method-steps">${copy.methodSteps.map(([title, english, detail], index) => `<article class="method-step"><span class="method-number">0${index + 1}</span><small>${english}</small><h3>${title}</h3><p>${detail}</p></article>`).join('')}</div><div class="method-handover"><span>${currentLang === 'zh' ? '共同完成' : 'Built together'}</span><strong>${currentLang === 'zh' ? '方向 + 工具 + 成果' : 'Direction + Tools + Outcomes'}</strong><i aria-hidden="true">→</i><span>${currentLang === 'zh' ? '團隊可以使用' : 'The team can use it'}</span></div></div></section>`
 }
 
 function lessonCard(lesson) {
-  const label = currentLang === 'zh' ? '查看教學' : 'View lesson'
-  return `<a class="instagram-lesson-card" href="${instagramProfile}" target="_blank" rel="noopener noreferrer"><div class="instagram-lesson-media"><img src="${lesson.image}" alt="${lesson.title}" loading="lazy" /><span class="instagram-play" aria-hidden="true">▶</span></div><div class="instagram-lesson-meta"><span>${lesson.topic}</span><span>Instagram ↗</span></div><h3>${lesson.title}</h3><p>${lesson.description}</p><span class="instagram-lesson-arrow">${label} <span aria-hidden="true">↗</span></span></a>`
+  return `<article class="instagram-lesson-card"><div class="instagram-lesson-media"><img src="${lesson.image}" alt="${lesson.title}" loading="lazy" /></div><div class="instagram-lesson-meta"><span>${lesson.topic}</span><span>Instagram</span></div><h3>${lesson.title}</h3><p>${lesson.description}</p></article>`
+}
+
+function instagramAuthoritySection() {
+  const copy = currentText().home
+  return `<section class="instagram-authority section-light" id="insights"><div class="container"><div class="instagram-authority-heading">${eyebrow(copy.instagramKicker, '06')}<h2>${copy.instagramTitle}</h2><p>${copy.instagramLead}</p></div><div class="instagram-cover-wall">${lessons[currentLang].map(lessonCard).join('')}</div></div></section>`
 }
 
 function offerSection() {
   const copy = currentText().home
-  return `<section class="offer-section section-dark"><div class="container offer-panel"><div>${eyebrow(copy.offerKicker, '04')}<h2>${copy.offerTitle[0]}<br /><span>${copy.offerTitle[1]}</span></h2><p>${copy.offerLead}</p></div><div class="offer-side"><div class="offer-price"><small>STARTING FROM</small><strong>${commercial.price}</strong><span>${commercial.duration} · ${commercial.pilot}</span></div>${link('/ai-agent-build', `${copy.offerButton} ${icons.arrow}`, 'button button-primary')}</div></div></section>`
+  return `<section class="offer-section section-dark" id="offer"><div class="container offer-panel"><div>${eyebrow(copy.offerKicker, '07')}<h2>${copy.offerTitle[0]}<br /><span>${copy.offerTitle[1]}</span></h2><p>${copy.offerLead}</p><ul class="offer-included">${copy.offerIncluded.map(item => `<li>${item}</li>`).join('')}</ul><p class="offer-excluded">${copy.offerExcluded}</p></div><div class="offer-side"><div class="offer-price"><small>${currentLang === 'zh' ? '建置費用' : 'BUILD FEE'}</small><strong>${commercial.price}</strong><span>${currentLang === 'zh' ? commercial.unitZh : commercial.unitEn}</span></div>${link('/ai-agent-build', `${copy.offerButton} ${icons.arrow}`, 'button button-primary')}</div></div></section>`
 }
 
 function consultationPreview() {
@@ -278,7 +386,7 @@ function sectionHeading(kicker, title, copy = '') {
 
 function homePage() {
   const copy = currentText().home
-  return shell(`${hero()}${comparisonSection()}${methodSection()}${offerSection()}${consultationPreview()}${faqSection()}<section class="final-cta section-dark"><div class="container">${eyebrow(copy.finalKicker, '06')}<h2>${copy.finalTitle}</h2><p>${copy.finalLead}</p>${link('/consultation', `${copy.primary} ${icons.arrow}`, 'button button-primary button-large')}</div></section>`)
+  return shell(`${hero()}${productSection()}${caseStudiesSection()}${comparisonSection()}${methodSection()}${instagramAuthoritySection()}${offerSection()}${consultationPreview()}${faqSection()}<section class="final-cta section-dark"><div class="container">${eyebrow(copy.finalKicker, '09')}<h2>${copy.finalTitle}</h2><p>${copy.finalLead}</p>${link('/consultation', `${copy.primary} ${icons.arrow}`, 'button button-primary button-large')}</div></section>`)
 }
 
 function pageHero(kicker, title, copy, number = 'PAGE') {
@@ -296,12 +404,12 @@ function buildPage() {
   const zh = currentLang === 'zh'
   const title = zh ? '一個核心 workflow<br /><span>一個可驗證版本</span>' : 'One core workflow<br /><span>One testable version</span>'
   const lead = zh ? '由診斷、建置到團隊掌握 集中處理一項最值得改善的工作' : 'Diagnose, build and enable the team around one high-value workflow'
-  return shell(`${pageHero('AI WORKFLOW BUILD SPRINT', title, lead, '02')}<section class="offer-detail section-light"><div class="container offer-detail-grid"><div>${eyebrow(zh ? 'THE RULE' : 'THE RULE', '01')}<h2>ONE CORE<br /><span>BUSINESS WORKFLOW</span></h2><p>${zh ? '先定義優先事項，再建立最小可行版本。scope、資料權限與 pilot 指標會在開始前說明。' : 'Define the priority first, then build the smallest useful version. Scope, data access and pilot metrics are set before we start.'}</p></div><div class="offer-facts"><div><span>STARTING FROM</span><strong>${commercial.price}</strong></div><div><span>TYPICAL DURATION</span><strong>${commercial.duration}</strong></div><div><span>PILOT</span><strong>${commercial.pilot}</strong></div></div></div></section><section class="service-phases section-dark"><div class="container"><div class="service-title">${eyebrow(zh ? 'DELIVERY PHASES' : 'DELIVERY PHASES', '03')}<h2>${zh ? '四個階段<br /><span>由問題行到團隊掌握</span>' : 'Four phases<br /><span>from problem to team ownership</span>'}</h2></div><div class="service-phase-list">${currentText().home.methodSteps.map(([name, english, detail], index) => `<div class="service-phase"><span>0${index + 1}</span><div><h3>${name}</h3><small>${english}</small></div><p>${detail}</p></div>`).join('')}</div></div></section>${consultationPreview()}`)
+  return shell(`${pageHero('AI AGENT WORKFLOW', title, lead, '02')}<section class="offer-detail section-light"><div class="container offer-detail-grid"><div>${eyebrow(zh ? 'THE RULE' : 'THE RULE', '01')}<h2>ONE CORE<br /><span>BUSINESS WORKFLOW</span></h2><p>${zh ? '先定義優先事項，再建立最小可用版本。Scope、資料權限與驗收方式會在開始前說明。' : 'Define the priority first, then build the smallest useful version. Scope, data access and acceptance are set before we start.'}</p></div><div class="offer-facts"><div><span>${zh ? '建置費用' : 'BUILD FEE'}</span><strong>${commercial.price}</strong></div><div><span>${zh ? '內容' : 'INCLUDES'}</span><strong>${zh ? commercial.unitZh : commercial.unitEn}</strong></div><div><span>${zh ? '交付' : 'HANDOVER'}</span><strong>${zh ? '使用說明' : 'Usage guide'}</strong></div></div></div></section><section class="service-phases section-dark"><div class="container"><div class="service-title">${eyebrow(zh ? 'DELIVERY PHASES' : 'DELIVERY PHASES', '03')}<h2>${zh ? '四個階段<br /><span>由問題行到團隊掌握</span>' : 'Four phases<br /><span>from problem to team ownership</span>'}</h2></div><div class="service-phase-list">${currentText().home.methodSteps.map(([name, english, detail], index) => `<div class="service-phase"><span>0${index + 1}</span><div><h3>${name}</h3><small>${english}</small></div><p>${detail}</p></div>`).join('')}</div></div></section>${consultationPreview()}`)
 }
 
 function casesPage() {
   const zh = currentLang === 'zh'
-  return shell(`${pageHero('CASE LIBRARY', zh ? '先量度<br /><span>再談結果</span>' : 'Measure first<br /><span>then discuss outcomes</span>', zh ? '案例會以 baseline、workflow、human control 與 verified outcome 為基礎' : 'Cases are grounded in a baseline, workflow, human control and verified outcome', '03')}<section class="case-library section-light"><div class="container case-library-inner">${eyebrow(zh ? 'VERIFIED EVIDENCE ONLY' : 'VERIFIED EVIDENCE ONLY', '01')}<h2>${zh ? '案例庫正在建立' : 'Case library in progress'}</h2><p>${zh ? '第一批 project 完成 pilot 與 read-back 後 我們會整理可公開的 before and after' : 'After the first projects complete their pilots and read-backs, we will publish verified before and after evidence.'}</p>${link('/consultation', `${currentText().home.primary} ${icons.arrow}`, 'button button-primary')}</div></section>`)
+  return shell(`${pageHero('CASE LIBRARY', zh ? '先量度<br /><span>再談結果</span>' : 'Measure first<br /><span>then discuss outcomes</span>', zh ? '案例以 baseline、workflow、人手覆核與可驗證結果為基礎' : 'Cases are grounded in a baseline, workflow, human review and verifiable outcomes', '03')}<section class="case-library section-light"><div class="container case-library-inner">${eyebrow(zh ? 'VERIFIED EVIDENCE ONLY' : 'VERIFIED EVIDENCE ONLY', '01')}<h2>${zh ? '案例庫正在建立' : 'Case library in progress'}</h2><p>${zh ? '公開案例會保留必要證據，並遮蓋所有私人資料。' : 'Public cases retain necessary evidence and redact private information.'}</p>${link('/consultation', `${currentText().home.primary} ${icons.arrow}`, 'button button-primary')}</div></section>`)
 }
 
 function aboutPage() {
